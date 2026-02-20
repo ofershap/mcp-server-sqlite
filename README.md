@@ -1,20 +1,26 @@
 # mcp-server-sqlite
 
-[![npm version](https://img.shields.io/npm/v/mcp-server-sqlite.svg)](https://www.npmjs.com/package/mcp-server-sqlite)
-[![npm downloads](https://img.shields.io/npm/dm/mcp-server-sqlite.svg)](https://www.npmjs.com/package/mcp-server-sqlite)
+[![npm version](https://img.shields.io/npm/v/mcp-sqlite-server.svg)](https://www.npmjs.com/package/mcp-sqlite-server)
+[![npm downloads](https://img.shields.io/npm/dm/mcp-sqlite-server.svg)](https://www.npmjs.com/package/mcp-sqlite-server)
 [![CI](https://github.com/ofershap/mcp-server-sqlite/actions/workflows/ci.yml/badge.svg)](https://github.com/ofershap/mcp-server-sqlite/actions/workflows/ci.yml)
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Query SQLite databases, inspect schemas, and explain queries directly from your AI assistant. Read-only by default for safety.
+Query SQLite databases, inspect schemas, and explain queries from your AI assistant. Read-only by default for safety.
 
 ```bash
-npx mcp-server-sqlite
+npx mcp-sqlite-server
 ```
 
-> Works with Claude Desktop, Cursor, VS Code Copilot, and any MCP client. Zero auth — reads local .db files.
+> Works with Claude Desktop, Cursor, VS Code Copilot, and any MCP client. Reads local `.db` files, no auth needed.
 
-![Demo](assets/demo.gif)
+![MCP server for querying SQLite databases and inspecting schemas](assets/demo.gif)
+
+<sub>Demo built with <a href="https://github.com/ofershap/remotion-readme-kit">remotion-readme-kit</a></sub>
+
+## Why
+
+SQLite is everywhere. It's the default database for mobile apps, Electron apps, local-first tools, and increasingly for server-side projects too (Turso, Cloudflare D1, Bun's built-in SQLite). The official MCP reference includes a basic SQLite server, but it's Python-only. If you're working in a TypeScript/Node.js environment and want to ask your assistant "what tables are in this database?" or "run this query and show me the results," this server handles that. It opens the database read-only by default so you can explore safely, and you can opt into write mode when you need it.
 
 ## Tools
 
@@ -37,7 +43,7 @@ Add to `.cursor/mcp.json`:
   "mcpServers": {
     "sqlite": {
       "command": "npx",
-      "args": ["mcp-server-sqlite"]
+      "args": ["mcp-sqlite-server"]
     }
   }
 }
@@ -52,15 +58,15 @@ Add to `claude_desktop_config.json` (macOS: `~/Library/Application Support/Claud
   "mcpServers": {
     "sqlite": {
       "command": "npx",
-      "args": ["mcp-server-sqlite"]
+      "args": ["mcp-sqlite-server"]
     }
   }
 }
 ```
 
-### VS Code (Copilot / MCP extension)
+### VS Code
 
-Configure the MCP server in your VS Code settings to run `npx mcp-server-sqlite`.
+Configure the MCP server in your VS Code settings to run `npx mcp-sqlite-server`.
 
 ## Example prompts
 
@@ -72,7 +78,7 @@ Configure the MCP server in your VS Code settings to run `npx mcp-server-sqlite`
 
 ## Safety
 
-**Read-only by default.** The `query` tool accepts only SELECT, PRAGMA, EXPLAIN, and WITH in readonly mode. Set `readonly=false` in the tool args to enable INSERT, UPDATE, DELETE, etc.
+Read-only by default. The `query` tool accepts only SELECT, PRAGMA, EXPLAIN, and WITH in readonly mode. Set `readonly=false` in the tool args to enable INSERT, UPDATE, DELETE, etc.
 
 ## Development
 
@@ -87,8 +93,11 @@ npm run lint
 
 ## Author
 
-Ofer Shapira · [GitHub](https://github.com/ofershap)
+**Ofer Shapira**
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-ofershap-blue?logo=linkedin)](https://linkedin.com/in/ofershap)
+[![GitHub](https://img.shields.io/badge/GitHub-ofershap-black?logo=github)](https://github.com/ofershap)
 
 ## License
 
-MIT
+MIT © 2026 Ofer Shapira
