@@ -1,7 +1,7 @@
 {
   "name": "mcp-sqlite-server",
   "version": "1.0.0",
-  "description": "MCP server for SQLite \u2014 query databases, inspect schemas, explain queries, and export data from your IDE",
+  "description": "MCP server for SQLite — query databases, inspect schemas, explain queries, and export data from your IDE",
   "type": "module",
   "bin": {
     "mcp-sqlite-server": "./dist/index.js"
