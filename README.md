@@ -18,6 +18,10 @@ npx mcp-sqlite-server
 
 <sub>Demo built with <a href="https://github.com/ofershap/remotion-readme-kit">remotion-readme-kit</a></sub>
 
+<a href="https://glama.ai/mcp/servers/ofershap/mcp-server-sqlite">
+  <img width="380" height="200" src="https://glama.ai/mcp/servers/ofershap/mcp-server-sqlite/badge" alt="mcp-server-sqlite MCP server" />
+</a>
+
 ## Why
 
 SQLite is everywhere. It's the default database for mobile apps, Electron apps, local-first tools, and increasingly for server-side projects too (Turso, Cloudflare D1, Bun's built-in SQLite). The official MCP reference includes a basic SQLite server, but it's Python-only. If you're working in a TypeScript/Node.js environment and want to ask your assistant "what tables are in this database?" or "run this query and show me the results," this server handles that. It opens the database read-only by default so you can explore safely, and you can opt into write mode when you need it.
