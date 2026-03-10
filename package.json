@@ -1,6 +1,7 @@
 {
   "name": "mcp-sqlite-server",
-  "version": "1.0.0",
+  "mcpName": "io.github.ofershap/sqlite",
+  "version": "1.0.1",
   "description": "MCP server for SQLite — query databases, inspect schemas, explain queries, and export data from your IDE",
   "type": "module",
   "bin": {
